@@ -9,8 +9,8 @@ app.get("/results", function(req, res){
 	
 	request("http://www.omdbapi.com/?s='Harry'", function(error, response, body){
 		if(!error && response.statusCode == 200) {
-			var parseData = JSON.parse(body);
-			res.send(parseData);
+			var results = JSON.parse(body);
+			res.send(results["Search"][0]["Title"]);
 		}
 	});
 
